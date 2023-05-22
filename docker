@@ -1,0 +1,458 @@
+diana@diana-VirtualBox:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+diana@diana-VirtualBox:~$ docker run hello-world
+Unable to find image 'hello-world:latest' locally
+latest: Pulling from library/hello-world
+719385e32844: Pull complete 
+Digest: sha256:fc6cf906cbfa013e80938cdf0bb199fbdbb86d6e3e013783e5a766f50f5dbce0
+Status: Downloaded newer image for hello-world:latest
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+diana@diana-VirtualBox:~$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
+hello-world   latest    9c7a54a9a43c   2 weeks ago   13.3kB
+diana@diana-VirtualBox:~$ docker search tomcat
+NAME                                  DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+tomcat                                Apache Tomcat is an open source implementati…   3537      [OK]       
+tomee                                 Apache TomEE is an all-Apache Java EE certif…   107       [OK]       
+bitnami/tomcat                        Bitnami Tomcat Docker Image                     48                   [OK]
+bitnamicharts/tomcat                                                                  0                    
+secoresearch/tomcat-varnish           Tomcat and Varnish 5.0                          0                    [OK]
+vulhub/tomcat                                                                         0                    
+islandora/tomcat                                                                      0                    
+wnprcehr/tomcat                                                                       0                    
+hivdb/tomcat-with-nucamino                                                            0                    
+sismics/tomcat                        Apache Tomcat Servlet Container                 1                    
+eclipse/rdf4j-workbench               Dockerfile for Eclipse RDF4J Server and Work…   6                    
+semoss/docker-tomcat                  Tomcat, Java, Maven, and Git on top of debian   0                    [OK]
+eclipse/hadoop-dev                    Ubuntu 14.04, Maven 3.3.9, JDK8, Tomcat 8       0                    [OK]
+gbif/ipt                              The GBIF Integrated Publishing Toolkit (IPT)…   0                    
+dhis2/base-dev                        Images in this repository contains DHIS2 WAR…   0                    
+eclipse/alpine_jdk8                   Based on Alpine 3.3. JDK 1.8, Maven 3.3.9, T…   1                    [OK]
+misolims/miso-base                    MySQL 5.7 Database and Tomcat 8 Server neede…   0                    
+dhis2/base                            Images in this repository contains DHIS2 WAR…   0                    
+jelastic/tomcat                       An image of the Tomcat Java application serv…   4                    
+cfje/tomcat-resource                  Tomcat Concourse Resource                       2                    
+rightctrl/tomcat                      CentOS , Oracle Java, tomcat application ssl…   7                    [OK]
+amd64/tomcat                          Apache Tomcat is an open source implementati…   6                    
+arm64v8/tomcat                        Apache Tomcat is an open source implementati…   8                    
+softwareplant/tomcat                  Tomcat images for jira-cloud testing            0                    [OK]
+tomcatengineering/pg_backup_rotated   Clone of martianrock/pg_backup_rotated but w…   0                    
+diana@diana-VirtualBox:~$ docker pull tomcat
+Using default tag: latest
+latest: Pulling from library/tomcat
+1bc677758ad7: Pull complete 
+0d0e0ecb256a: Pull complete 
+c24bf4c725c2: Pull complete 
+4fb255c76461: Pull complete 
+b388fec4cd21: Pull complete 
+4800bac131aa: Pull complete 
+fc4cc5ff9156: Pull complete 
+Digest: sha256:74683fce813ff49eb65e01074774d499c52d198be503a06577f3225290faadba
+Status: Downloaded newer image for tomcat:latest
+docker.io/library/tomcat:latest
+diana@diana-VirtualBox:~$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
+hello-world   latest    9c7a54a9a43c   2 weeks ago   13.3kB
+tomcat        latest    311570738ca3   2 weeks ago   475MB
+diana@diana-VirtualBox:~$ ifconfig
+Command 'ifconfig' not found, but can be installed with:
+sudo apt install net-tools
+diana@diana-VirtualBox:~$ sudo apt install net-tools
+[sudo] password for diana: 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following NEW packages will be installed:
+  net-tools
+0 upgraded, 1 newly installed, 0 to remove and 105 not upgraded.
+Need to get 204 kB of archives.
+After this operation, 819 kB of additional disk space will be used.
+Get:1 http://ua.archive.ubuntu.com/ubuntu jammy/main amd64 net-tools amd64 1.60+git20181103.0eebece-1ubuntu5 [204 kB]
+Fetched 204 kB in 0s (567 kB/s)     
+Selecting previously unselected package net-tools.
+(Reading database ... 203532 files and directories currently installed.)
+Preparing to unpack .../net-tools_1.60+git20181103.0eebece-1ubuntu5_amd64.deb .
+..
+Unpacking net-tools (1.60+git20181103.0eebece-1ubuntu5) ...
+Setting up net-tools (1.60+git20181103.0eebece-1ubuntu5) ...
+Processing triggers for man-db (2.10.2-1) ...
+diana@diana-VirtualBox:~$ ifconfig
+docker0: flags=4099<UP,BROADCAST,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        inet6 fe80::42:82ff:feb7:a0bf  prefixlen 64  scopeid 0x20<link>
+        ether 02:42:82:b7:a0:bf  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 2  bytes 196 (196.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::b29:a23:bef3:ebc5  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:d8:44:89  txqueuelen 1000  (Ethernet)
+        RX packets 599851  bytes 897912874 (897.9 MB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 40495  bytes 3095288 (3.0 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 615  bytes 68377 (68.3 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 615  bytes 68377 (68.3 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+diana@diana-VirtualBox:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+diana@diana-VirtualBox:~$ docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+9f1abbd579bd   hello-world   "/hello"   18 minutes ago   Exited (0) 18 minutes ago             gifted_solomon
+diana@diana-VirtualBox:~$ docker run -it -p 1234:8080 tomcat
+Using CATALINA_BASE:   /usr/local/tomcat
+Using CATALINA_HOME:   /usr/local/tomcat
+Using CATALINA_TMPDIR: /usr/local/tomcat/temp
+Using JRE_HOME:        /opt/java/openjdk
+Using CLASSPATH:       /usr/local/tomcat/bin/bootstrap.jar:/usr/local/tomcat/bin/tomcat-juli.jar
+Using CATALINA_OPTS:   
+18-May-2023 21:55:11.621 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.8
+18-May-2023 21:55:11.644 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Apr 14 2023 19:40:29 UTC
+18-May-2023 21:55:11.647 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.8.0
+18-May-2023 21:55:11.648 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+18-May-2023 21:55:11.649 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.19.0-41-generic
+18-May-2023 21:55:11.649 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+18-May-2023 21:55:11.651 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /opt/java/openjdk
+18-May-2023 21:55:11.651 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           17.0.7+7
+18-May-2023 21:55:11.652 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+18-May-2023 21:55:11.657 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /usr/local/tomcat
+18-May-2023 21:55:11.657 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /usr/local/tomcat
+18-May-2023 21:55:11.716 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/usr/local/tomcat/conf/logging.properties
+18-May-2023 21:55:11.717 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+18-May-2023 21:55:11.718 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+18-May-2023 21:55:11.719 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+18-May-2023 21:55:11.720 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+18-May-2023 21:55:11.721 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+18-May-2023 21:55:11.722 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+18-May-2023 21:55:11.722 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+18-May-2023 21:55:11.723 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+18-May-2023 21:55:11.724 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+18-May-2023 21:55:11.727 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/usr/local/tomcat
+18-May-2023 21:55:11.734 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/usr/local/tomcat
+18-May-2023 21:55:11.735 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/usr/local/tomcat/temp
+18-May-2023 21:55:11.774 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent Loaded Apache Tomcat Native library [2.0.3] using APR version [1.7.0].
+18-May-2023 21:55:11.815 INFO [main] org.apache.catalina.core.AprLifecycleListener.initializeSSL OpenSSL successfully initialized [OpenSSL 3.0.2 15 Mar 2022]
+18-May-2023 21:55:12.869 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+18-May-2023 21:55:12.967 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [2032] milliseconds
+18-May-2023 21:55:13.119 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+18-May-2023 21:55:13.120 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.8]
+18-May-2023 21:55:13.173 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+18-May-2023 21:55:13.237 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [267] milliseconds
+^C18-May-2023 21:57:24.956 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+18-May-2023 21:57:24.986 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+18-May-2023 21:57:25.004 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+18-May-2023 21:57:25.035 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+diana@diana-VirtualBox:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+diana@diana-VirtualBox:~$ docker ps -a
+CONTAINER ID   IMAGE         COMMAND             CREATED          STATUS                        PORTS     NAMES
+36020e3da274   tomcat        "catalina.sh run"   3 minutes ago    Exited (130) 51 seconds ago             determined_stonebraker
+9f1abbd579bd   hello-world   "/hello"            24 minutes ago   Exited (0) 24 minutes ago               gifted_solomon
+diana@diana-VirtualBox:~$ docker run -d -p 1234:8080 tomcat
+229d772edb83909e2cdf8a77b543fbea9d683c634320f79d8885c7d2dabdb19d
+diana@diana-VirtualBox:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND             CREATED         STATUS         PORTS                                       NAMES
+229d772edb83   tomcat    "catalina.sh run"   8 seconds ago   Up 7 seconds   0.0.0.0:1234->8080/tcp, :::1234->8080/tcp   interesting_gauss
+diana@diana-VirtualBox:~$ docker run -d -p 1235:8080 tomcat
+827776b84a92f859002e7845828ab67b1165ac2d321fcb21925b5a9046505fa0
+diana@diana-VirtualBox:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND             CREATED              STATUS              PORTS                                       NAMES
+827776b84a92   tomcat    "catalina.sh run"   21 seconds ago       Up 20 seconds       0.0.0.0:1235->8080/tcp, :::1235->8080/tcp   practical_margulis
+229d772edb83   tomcat    "catalina.sh run"   About a minute ago   Up About a minute   0.0.0.0:1234->8080/tcp, :::1234->8080/tcp   interesting_gauss
+diana@diana-VirtualBox:~$ docker search nginx
+NAME                                              DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+nginx                                             Official build of Nginx.                        18517     [OK]       
+unit                                              Official build of NGINX Unit: Universal Web …   3         [OK]       
+bitnami/nginx                                     Bitnami nginx Docker Image                      163                  [OK]
+bitnami/nginx-ingress-controller                  Bitnami Docker Image for NGINX Ingress Contr…   25                   [OK]
+ubuntu/nginx                                      Nginx, a high-performance reverse proxy & we…   91                   
+kasmweb/nginx                                     An Nginx image based off nginx:alpine and in…   6                    
+rancher/nginx-ingress-controller                                                                  11                   
+rancher/nginx-ingress-controller-defaultbackend                                                   2                    
+bitnami/nginx-exporter                                                                            3                    
+rancher/nginx                                                                                     2                    
+rapidfort/nginx-ib                                RapidFort optimized, hardened image for NGIN…   10                   
+rapidfort/nginx                                   RapidFort optimized, hardened image for NGINX   14                   
+vmware/nginx-photon                                                                               1                    
+bitnami/nginx-ldap-auth-daemon                                                                    3                    
+rapidfort/nginx-official                          RapidFort optimized, hardened image for NGIN…   10                   
+vmware/nginx                                                                                      2                    
+rancher/nginx-conf                                                                                0                    
+linuxserver/nginx                                 An Nginx container, brought to you by LinuxS…   201                  
+privatebin/nginx-fpm-alpine                       PrivateBin running on an Nginx, php-fpm & Al…   72                   [OK]
+bitnami/nginx-intel                                                                               1                    
+rancher/nginx-ssl                                                                                 0                    
+bitnamicharts/nginx                                                                               0                    
+circleci/nginx                                    This image is for internal use                  2                    
+redash/nginx                                      Pre-configured nginx to proxy linked contain…   2                    
+continuumio/nginx-ingress-ws                                                                      0                    
+diana@diana-VirtualBox:~$ docker run -d -p 1237:80 nginx
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+9e3ea8720c6d: Pull complete 
+bf36b6466679: Pull complete 
+15a97cf85bb8: Pull complete 
+9c2d6be5a61d: Pull complete 
+6b7e4a5c7c7a: Pull complete 
+8db4caa19df8: Pull complete 
+Digest: sha256:480868e8c8c797794257e2abd88d0f9a8809b2fe956cbfbc05dcc0bca1f7cd43
+Status: Downloaded newer image for nginx:latest
+9c386b85e2a05614668897456478c6c7f81f7d2f7f5eca32e46b7cc593b5c7af
+diana@diana-VirtualBox:~$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED         STATUS         PORTS                                       NAMES
+9c386b85e2a0   nginx     "/docker-entrypoint.…"   7 seconds ago   Up 6 seconds   0.0.0.0:1237->80/tcp, :::1237->80/tcp       elegant_sinoussi
+827776b84a92   tomcat    "catalina.sh run"        2 minutes ago   Up 2 minutes   0.0.0.0:1235->8080/tcp, :::1235->8080/tcp   practical_margulis
+229d772edb83   tomcat    "catalina.sh run"        3 minutes ago   Up 3 minutes   0.0.0.0:1234->8080/tcp, :::1234->8080/tcp   interesting_gauss
+diana@diana-VirtualBox:~$ docker ps -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                       PORTS                                       NAMES
+9c386b85e2a0   nginx         "/docker-entrypoint.…"   56 seconds ago   Up 55 seconds                0.0.0.0:1237->80/tcp, :::1237->80/tcp       elegant_sinoussi
+827776b84a92   tomcat        "catalina.sh run"        3 minutes ago    Up 3 minutes                 0.0.0.0:1235->8080/tcp, :::1235->8080/tcp   practical_margulis
+229d772edb83   tomcat        "catalina.sh run"        4 minutes ago    Up 4 minutes                 0.0.0.0:1234->8080/tcp, :::1234->8080/tcp   interesting_gauss
+36020e3da274   tomcat        "catalina.sh run"        10 minutes ago   Exited (130) 8 minutes ago                                               determined_stonebraker
+9f1abbd579bd   hello-world   "/hello"                 31 minutes ago   Exited (0) 31 minutes ago                                                gifted_solomon
+diana@diana-VirtualBox:~$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
+hello-world   latest    9c7a54a9a43c   2 weeks ago   13.3kB
+tomcat        latest    311570738ca3   2 weeks ago   475MB
+nginx         latest    448a08f1d2f9   2 weeks ago   142MB
+diana@diana-VirtualBox:~$ docker rmi  hello-world
+Error response from daemon: conflict: unable to remove repository reference "hello-world" (must force) - container 9f1abbd579bd is using its referenced image 9c7a54a9a43c
+diana@diana-VirtualBox:~$ docker rm 9f1abbd579bd
+9f1abbd579bd
+diana@diana-VirtualBox:~$ docker ps -a
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS                        PORTS                                       NAMES
+9c386b85e2a0   nginx     "/docker-entrypoint.…"   5 minutes ago    Up 5 minutes                  0.0.0.0:1237->80/tcp, :::1237->80/tcp       elegant_sinoussi
+827776b84a92   tomcat    "catalina.sh run"        7 minutes ago    Up 7 minutes                  0.0.0.0:1235->8080/tcp, :::1235->8080/tcp   practical_margulis
+229d772edb83   tomcat    "catalina.sh run"        9 minutes ago    Up 9 minutes                  0.0.0.0:1234->8080/tcp, :::1234->8080/tcp   interesting_gauss
+36020e3da274   tomcat    "catalina.sh run"        15 minutes ago   Exited (130) 12 minutes ago                                               determined_stonebraker
+diana@diana-VirtualBox:~$ docker images
+REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
+hello-world   latest    9c7a54a9a43c   2 weeks ago   13.3kB
+tomcat        latest    311570738ca3   2 weeks ago   475MB
+nginx         latest    448a08f1d2f9   2 weeks ago   142MB
+diana@diana-VirtualBox:~$ docker rmi  9c7a54a9a43c
+Untagged: hello-world:latest
+Untagged: hello-world@sha256:fc6cf906cbfa013e80938cdf0bb199fbdbb86d6e3e013783e5a766f50f5dbce0
+Deleted: sha256:9c7a54a9a43cca047013b82af109fe963fde787f63f9e016fdc3384500c2823d
+Deleted: sha256:01bb4fce3eb1b56b05adf99504dafd31907a5aadac736e36b27595c8b92f07f1
+diana@diana-VirtualBox:~$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+tomcat       latest    311570738ca3   2 weeks ago   475MB
+nginx        latest    448a08f1d2f9   2 weeks ago   142MB
+diana@diana-VirtualBox:~$ mkdir mydocker
+diana@diana-VirtualBox:~$ cd mydocker/
+diana@diana-VirtualBox:~/mydocker$ nano Dockerfile
+diana@diana-VirtualBox:~/mydocker$ docker build -t diana:v1 .
+[+] Building 38.8s (8/8) FINISHED                                              
+ => [internal] load build definition from Dockerfile                      0.1s
+ => => transferring dockerfile: 508B                                      0.0s
+ => [internal] load .dockerignore                                         0.1s
+ => => transferring context: 2B                                           0.0s
+ => [internal] load metadata for docker.io/library/ubuntu:latest          2.5s
+ => [1/4] FROM docker.io/library/ubuntu:latest@sha256:dfd64a3b4296d8c9b6  0.9s
+ => => resolve docker.io/library/ubuntu:latest@sha256:dfd64a3b4296d8c9b6  0.9s
+ => => sha256:3b418d7b466ac6275a6bfcb0c86fbe4422ff6ea0af 2.30kB / 2.30kB  0.0s
+ => => sha256:dfd64a3b4296d8c9b62aa3309984f8620b98d87e47 1.13kB / 1.13kB  0.0s
+ => => sha256:ca5534a51dd04bbcebe9b23ba05f389466cf0c190f1f8f 424B / 424B  0.0s
+ => [2/4] RUN apt-get -y update                                          10.8s
+ => [3/4] RUN apt-get -y install apache2                                 22.4s 
+ => [4/4] RUN echo 'Hello World from Docker!' > /var/www/html/index.html  0.6s 
+ => exporting to image                                                    1.3s 
+ => => exporting layers                                                   1.3s 
+ => => writing image sha256:0202948bd59dd9551dd51c9923a88303884971186409  0.0s 
+ => => naming to docker.io/library/diana:v1                               0.0s 
+diana@diana-VirtualBox:~/mydocker$ docker images                               
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+diana        v1        0202948bd59d   20 seconds ago   225MB
+tomcat       latest    311570738ca3   2 weeks ago      475MB
+nginx        latest    448a08f1d2f9   2 weeks ago      142MB
+diana@diana-VirtualBox:~/mydocker$ ip addr show eth0
+Device "eth0" does not exist.
+diana@diana-VirtualBox:~/mydocker$ ip addr show
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:d8:44:89 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic noprefixroute enp0s3
+       valid_lft 82548sec preferred_lft 82548sec
+    inet6 fe80::b29:a23:bef3:ebc5/64 scope link noprefixroute 
+       valid_lft forever preferred_lft forever
+3: docker0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default 
+    link/ether 02:42:82:b7:a0:bf brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:82ff:feb7:a0bf/64 scope link 
+       valid_lft forever preferred_lft forever
+9: veth9c5f65c@if8: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether 8a:d4:ce:ae:0b:19 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::88d4:ceff:feae:b19/64 scope link 
+       valid_lft forever preferred_lft forever
+11: vetha895cdf@if10: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether 9a:dc:1a:db:5f:39 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::98dc:1aff:fedb:5f39/64 scope link 
+       valid_lft forever preferred_lft forever
+13: veth3e4e639@if12: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker0 state UP group default 
+    link/ether fa:d4:4a:aa:08:cf brd ff:ff:ff:ff:ff:ff link-netnsid 2
+    inet6 fe80::f8d4:4aff:feaa:8cf/64 scope link 
+       valid_lft forever preferred_lft forever
+diana@diana-VirtualBox:~/mydocker$ ifconfig
+docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        inet6 fe80::42:82ff:feb7:a0bf  prefixlen 64  scopeid 0x20<link>
+        ether 02:42:82:b7:a0:bf  txqueuelen 0  (Ethernet)
+        RX packets 4894  bytes 214353 (214.3 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 6228  bytes 50399548 (50.3 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::b29:a23:bef3:ebc5  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:d8:44:89  txqueuelen 1000  (Ethernet)
+        RX packets 680457  bytes 1010545392 (1.0 GB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 57036  bytes 4629585 (4.6 MB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 1378  bytes 156315 (156.3 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 1378  bytes 156315 (156.3 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+veth3e4e639: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::f8d4:4aff:feaa:8cf  prefixlen 64  scopeid 0x20<link>
+        ether fa:d4:4a:aa:08:cf  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 36  bytes 3940 (3.9 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+veth9c5f65c: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::88d4:ceff:feae:b19  prefixlen 64  scopeid 0x20<link>
+        ether 8a:d4:ce:ae:0b:19  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 38  bytes 4200 (4.2 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+vetha895cdf: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::98dc:1aff:fedb:5f39  prefixlen 64  scopeid 0x20<link>
+        ether 9a:dc:1a:db:5f:39  txqueuelen 0  (Ethernet)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 36  bytes 3940 (3.9 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+diana@diana-VirtualBox:~/mydocker$ docker run -d -p 7777:80 diana:v1
+03557d8478b1b79e52fa305064686be43b7834c446507901f44b17a329c74dd9
+diana@diana-VirtualBox:~/mydocker$ docker ps
+CONTAINER ID   IMAGE      COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+03557d8478b1   diana:v1   "/usr/sbin/apache2ct…"   10 seconds ago   Up 8 seconds    0.0.0.0:7777->80/tcp, :::7777->80/tcp       nostalgic_jemison
+9c386b85e2a0   nginx      "/docker-entrypoint.…"   28 minutes ago   Up 28 minutes   0.0.0.0:1237->80/tcp, :::1237->80/tcp       elegant_sinoussi
+827776b84a92   tomcat     "catalina.sh run"        30 minutes ago   Up 30 minutes   0.0.0.0:1235->8080/tcp, :::1235->8080/tcp   practical_margulis
+229d772edb83   tomcat     "catalina.sh run"        32 minutes ago   Up 32 minutes   0.0.0.0:1234->8080/tcp, :::1234->8080/tcp   interesting_gauss
+diana@diana-VirtualBox:~/mydocker$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+diana        v1        0202948bd59d   10 minutes ago   225MB
+tomcat       latest    311570738ca3   2 weeks ago      475MB
+nginx        latest    448a08f1d2f9   2 weeks ago      142MB
+diana@diana-VirtualBox:~/mydocker$ docker tag diana:v1 diana:copy 
+diana@diana-VirtualBox:~/mydocker$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+diana        copy      0202948bd59d   13 minutes ago   225MB
+diana        v1        0202948bd59d   13 minutes ago   225MB
+tomcat       latest    311570738ca3   2 weeks ago      475MB
+nginx        latest    448a08f1d2f9   2 weeks ago      142MB
+diana@diana-VirtualBox:~/mydocker$ nano Dockerfile
+diana@diana-VirtualBox:~/mydocker$ docker ps
+CONTAINER ID   IMAGE      COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+03557d8478b1   diana:v1   "/usr/sbin/apache2ct…"   8 minutes ago    Up 8 minutes    0.0.0.0:7777->80/tcp, :::7777->80/tcp       nostalgic_jemison
+9c386b85e2a0   nginx      "/docker-entrypoint.…"   36 minutes ago   Up 36 minutes   0.0.0.0:1237->80/tcp, :::1237->80/tcp       elegant_sinoussi
+827776b84a92   tomcat     "catalina.sh run"        38 minutes ago   Up 38 minutes   0.0.0.0:1235->8080/tcp, :::1235->8080/tcp   practical_margulis
+229d772edb83   tomcat     "catalina.sh run"        40 minutes ago   Up 40 minutes   0.0.0.0:1234->8080/tcp, :::1234->8080/tcp   interesting_gauss
+diana@diana-VirtualBox:~/mydocker$ docker exec -it 03557d8478b1 /bin/bash
+root@03557d8478b1:/# cd /var/www/html/
+root@03557d8478b1:/var/www/html# cat index html
+cat: index: No such file or directory
+cat: html: No such file or directory
+root@03557d8478b1:/var/www/html# cat index.html
+Hello World from Docker!
+root@03557d8478b1:/var/www/html# nano index.html
+bash: nano: command not found
+root@03557d8478b1:/var/www/html# vi index.html
+bash: vi: command not found
+root@03557d8478b1:/var/www/html# echo "Version 2" >> index.html
+root@03557d8478b1:/var/www/html# cat index.html
+Hello World from Docker!
+Version 2
+root@03557d8478b1:/var/www/html# exit
+exit
+diana@diana-VirtualBox:~/mydocker$ docker ps
+CONTAINER ID   IMAGE      COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+03557d8478b1   diana:v1   "/usr/sbin/apache2ct…"   15 minutes ago   Up 15 minutes   0.0.0.0:7777->80/tcp, :::7777->80/tcp       nostalgic_jemison
+9c386b85e2a0   nginx      "/docker-entrypoint.…"   43 minutes ago   Up 43 minutes   0.0.0.0:1237->80/tcp, :::1237->80/tcp       elegant_sinoussi
+827776b84a92   tomcat     "catalina.sh run"        45 minutes ago   Up 45 minutes   0.0.0.0:1235->8080/tcp, :::1235->8080/tcp   practical_margulis
+229d772edb83   tomcat     "catalina.sh run"        47 minutes ago   Up 47 minutes   0.0.0.0:1234->8080/tcp, :::1234->8080/tcp   interesting_gauss
+diana@diana-VirtualBox:~/mydocker$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED          SIZE
+diana        copy      0202948bd59d   22 minutes ago   225MB
+diana        v1        0202948bd59d   22 minutes ago   225MB
+tomcat       latest    311570738ca3   2 weeks ago      475MB
+nginx        latest    448a08f1d2f9   2 weeks ago      142MB
+diana@diana-VirtualBox:~/mydocker$ docker commit 03557d8478b1 diana:v2
+sha256:d4fbd766688c05a69d659140df0018c428a3874ef14bca96cdc0c060fa7bb7b1
+diana@diana-VirtualBox:~/mydocker$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED              SIZE
+diana        v2        d4fbd766688c   About a minute ago   225MB
+diana        copy      0202948bd59d   25 minutes ago       225MB
+diana        v1        0202948bd59d   25 minutes ago       225MB
+tomcat       latest    311570738ca3   2 weeks ago          475MB
+nginx        latest    448a08f1d2f9   2 weeks ago          142MB
+diana@diana-VirtualBox:~/mydocker$ docker run -d -p 8888:80 diana:v2
+1e8cc4433a81885a6b1b0912886982a63109d4fed69c7528cf2efbd6d7b87b44
+diana@diana-VirtualBox:~/mydocker$ docker ps
+CONTAINER ID   IMAGE      COMMAND                  CREATED          STATUS          PORTS                                       NAMES
+1e8cc4433a81   diana:v2   "/usr/sbin/apache2ct…"   6 seconds ago    Up 5 seconds    0.0.0.0:8888->80/tcp, :::8888->80/tcp       infallible_joliot
+03557d8478b1   diana:v1   "/usr/sbin/apache2ct…"   20 minutes ago   Up 20 minutes   0.0.0.0:7777->80/tcp, :::7777->80/tcp       nostalgic_jemison
+9c386b85e2a0   nginx      "/docker-entrypoint.…"   48 minutes ago   Up 48 minutes   0.0.0.0:1237->80/tcp, :::1237->80/tcp       elegant_sinoussi
+827776b84a92   tomcat     "catalina.sh run"        51 minutes ago   Up 51 minutes   0.0.0.0:1235->8080/tcp, :::1235->8080/tcp   practical_margulis
+229d772edb83   tomcat     "catalina.sh run"        52 minutes ago   Up 52 minutes   0.0.0.0:1234->8080/tcp, :::1234->8080/tcp   interesting_gauss
